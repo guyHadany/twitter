@@ -1,4 +1,4 @@
-// const tweeter = function(){
+const Tweeter = function(){
     
     const _posts = [
         {
@@ -22,9 +22,6 @@
         ];
     let postidCounter = 0
     let commentIdCounter = 0
-    // for(let index in _posts){
-    //     let counter = 0 
-    //     counter += _posts[index].comments.length
     const getPosts = function(){
         return _posts
     }
@@ -32,7 +29,7 @@
         let newPost = {
             text,
             id: `p${postidCounter}`,
-             comments: []
+            comments: []
             }
         _posts.push(newPost)
         postidCounter++
@@ -67,23 +64,14 @@
             }
         }
     }    
-    
+    return {
+        getPosts,
+        removePost,
+        addComment,
+        removeComment
 
-//     const postIDp = function(postID, text){
-//         _posts[postID].comments.push({id: ``, text: text})
-//         for(let index in _posts[postID].comments){
-//             let counter = index
-//             counter++;
-//             _posts[postID].comments[index].id = `p${counter}`
-//         }
-//     }
-//     const removeComment = function(postID, commentID){
-//         let postIDP = parseFloat(postID) - 1
-         
-//     }
-// console.log(commentIdCounter())
-
-// }
+    }
+}
 
 
 
