@@ -1,4 +1,4 @@
-const tweeter = function(){
+// const tweeter = function(){
     
     const _posts = [
         {
@@ -20,15 +20,70 @@ const tweeter = function(){
             ]
         }
         ];
-    const postidCounter = _posts.length
-    const commentIdCounter = function(){
+    let postidCounter = 0
+    let commentIdCounter = 0
+    // for(let index in _posts){
+    //     let counter = 0 
+    //     counter += _posts[index].comments.length
+    const getPosts = function(){
+        return _posts
+    }
+    const addPost = function(text){
+        let newPost = {
+            text,
+            id: `p${postidCounter}`,
+             comments: []
+            }
+        _posts.push(newPost)
+        postidCounter++
+    }
+    const removePost = function(postID){
         for(let index in _posts){
-            let counter = 0 
-            counter += _posts[index].comments.length
+            if(postID == _posts[index].id){
+                _posts.splice(index, 1)
+            }
         }
     }
+    const addComment = function(postID, text){
+        for(let index in _posts){
+            if(postID == _posts[index].id){
+            commentIdCounter++
+            let newComment = {
+                id: `c${_posts[index].comments.length}`,
+                text
+                }
+            _posts[index].comments.push(newComment)
+            }
+        }
+    }   
+    const removeComment = function(postID, commentID){
+        for(let index in _posts){
+            if(postID == _posts[index].id){
+                for(let i in _posts[index].comments){
+                    if(commentID == _posts[index].comments[i].id){
+                        _posts[index].comments.splice(i, 1)
+                    }
+                }
+            }
+        }
+    }    
+    
 
-}
+//     const postIDp = function(postID, text){
+//         _posts[postID].comments.push({id: ``, text: text})
+//         for(let index in _posts[postID].comments){
+//             let counter = index
+//             counter++;
+//             _posts[postID].comments[index].id = `p${counter}`
+//         }
+//     }
+//     const removeComment = function(postID, commentID){
+//         let postIDP = parseFloat(postID) - 1
+         
+//     }
+// console.log(commentIdCounter())
+
+// }
 
 
 
