@@ -2,7 +2,7 @@ const Tweeter = function(){
     
     const _posts = []
     let postidCounter = 1
-    let commentIdCounter = 0
+    let commentIdCounter = 1
     const getPosts = function(){
         return _posts
     }
@@ -15,6 +15,8 @@ const Tweeter = function(){
         _posts.push(newPost)
         postidCounter++
     }
+
+
     const removePost = function(postID){
         for(let index in _posts){
             if(postID == _posts[index].id){
